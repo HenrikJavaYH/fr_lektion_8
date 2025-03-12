@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react"
+import { ProductCard } from "~/components/ProductCard"
 import type { Product } from "~/types/Product"
 
 
@@ -11,7 +12,7 @@ export function Welcome() {
       price: "",
       description: "",
       category: "",
-      image: "",
+      image: "https://www.svgrepo.com/show/508699/landscape-placeholder.svg",
       rating: {
         rate: 0,
         count: 0
@@ -42,17 +43,16 @@ export function Welcome() {
 
     {productList.map( (
       { id, title, description, image, price, rating, category}) => (
-       <div>
-        <p>id: {id}</p>
-        <p>title: {title}</p>
-        <p>image: {image}</p>
-        <p>id: {description}</p>
-        <p>price: {price}</p>
-        <p>rating, count: {rating.count}</p>
-        <p>rating, rate: {rating.rate}</p>
-        <p>category: {category}</p>
-        
-       </div>
+       <ProductCard
+       key={id} 
+       id={id} 
+       title={title} 
+       price={price} 
+       description={description} 
+       category={category} 
+       image={image} 
+       rating={rating}
+       />
       ) 
       )}
   </div>
